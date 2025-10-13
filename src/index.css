@@ -1,0 +1,103 @@
+:root {
+  /* Color Scheme */
+  --zinc-50:  oklch(98.5% 0 0);
+  --zinc-100: oklch(96.7% .001 286.375);
+  --zinc-200: oklch(92% .004 286.32);
+  --zinc-300: oklch(87.1% .006 286.286);
+  --zinc-400: oklch(70.5% .015 286.067);
+  --zinc-500: oklch(55.2% .016 285.938);
+  --zinc-600: oklch(44.2% .017 285.786);
+  --zinc-700: oklch(37% .013 285.805);
+  --zinc-800: oklch(27.4% .006 286.033);
+  --zinc-900: oklch(21% .006 285.885);
+  --zinc-950: oklch(14.1% .005 285.823);
+  
+  /* Colors for Ranking page's Top 3 */
+  --bronze:   #CE8946;
+  --silver:   #C4C4C4;
+  --gold:     #EFBF04;
+
+  /* Font Settings */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Color Settings */
+  color: var(--zinc-50);
+  background-color: var(--zinc-900);
+}
+
+/* CSS RESET */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* 10. Create a root stacking context */
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Links Setup */ 
+a {
+  color: var(--zinc-100);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--zinc-400);
+}
+
+/* Initial padding to main pages */
+main {
+  margin: 4rem 10rem;
+}

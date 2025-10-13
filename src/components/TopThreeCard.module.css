@@ -1,0 +1,33 @@
+.topThreeCard {
+  width: 20%;
+  padding: 1.5rem;
+  border-radius: 4px;
+  color: var(--zinc-900);
+}
+
+.topThreeCard + .topThreeCard {
+  margin-top: 1rem;
+}
+
+.bronze {
+  background-color: var(--bronze);
+}
+
+.silver {
+  background-color: var(--silver);
+}
+
+.gold {
+  background-color: var(--gold);
+}
+
+.teamName {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Making Icons inline for Top 3 cards */
+.topThreeCard svg {
+  display: inline;
+}

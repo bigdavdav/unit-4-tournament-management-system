@@ -1,0 +1,41 @@
+.sidebarContainer {
+  background: var(--zinc-800);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 2rem;
+  text-align: center;
+}
+
+.navContainer {
+  margin: 1rem;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mainNav p, .adminNav p {
+  padding: 1rem;
+}
+
+.mainNav a, .adminNav a {
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+
+  background-color: var(--zinc-700);
+  border-radius: 4px;
+}
+
+.mainNav a + a, .adminNav a + a {
+  margin-top: 1rem;
+}
+
+/* Making Icons inline */
+.sidebarContainer svg {
+  display: inline;
+}
