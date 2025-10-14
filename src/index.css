@@ -101,3 +101,9 @@ a:hover {
 main {
   margin: 4rem 10rem;
 }
+
+/* Aligning page titles */
+main h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
