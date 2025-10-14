@@ -46,7 +46,6 @@ export function Sidebar() {
           </NavLink>
         </div>
       </nav>
-
     </aside>
   )
 }
