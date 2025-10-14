@@ -1,7 +1,13 @@
 .sidebarContainer {
-  background: var(--zinc-800);
+  height: 100vh;
+  width: 15rem;
+  position: fixed;
+  z-index: 1;
+
   display: flex;
   flex-direction: column;
+
+  background: var(--zinc-800);
 }
 
 .logo {
