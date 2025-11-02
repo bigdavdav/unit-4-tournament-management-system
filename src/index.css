@@ -31,6 +31,8 @@
   background-color: var(--zinc-900);
 }
 
+/* ------------------------------------------------------------------- */
+
 /* CSS RESET */
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
@@ -86,10 +88,13 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/* ------------------------------------------------------------------- */
+
 /* Links Setup */ 
 a {
   color: var(--zinc-100);
   text-decoration: none;
+  cursor: pointer;
   transition: color 0.2s;
 }
 
@@ -99,16 +104,11 @@ a:hover {
 
 /* Initial padding to main pages */
 main {
-<<<<<<< HEAD
-  margin: 4rem 10rem;
+  margin: 4rem 10rem 4rem 25rem;
 }
 
 /* Aligning page titles */
 main h1 {
   text-align: center;
   margin-bottom: 2rem;
-=======
-  margin: 4rem 10rem 4rem 25rem;
-  width: 100%;
->>>>>>> 63d71928d09251132ade1bc32767016c8b209dc3
 }

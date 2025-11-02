@@ -1,0 +1,35 @@
+.eventListing {
+  height: 12rem;
+  padding: 3rem;
+
+  background-color: var(--zinc-800);
+  border-radius: 4px;
+
+  transition: background 0.2s;
+}
+
+.eventListing a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eventDetails p, .eventListing p {
+  color: var(--zinc-300);
+}
+
+.eventListing + .eventListing {
+  margin-top: 1rem;
+}
+
+.podiumList {
+  min-width: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.eventListing:hover {
+  background: var(--zinc-700);
+}

@@ -1,46 +1,11 @@
-.mainContainer section h2 {
+.competitorsContainer section h2 {
   margin-bottom: 1rem;
 }
 
-.mainContainer section table {
-  margin-bottom: 2rem;
-  border: 1px solid;
-  border-collapse: collapse;
-}
-
-.mainContainer section th, .mainContainer section td {
-  padding: 10px;
-}
-
-.mainContainer section td {
-  border-bottom: 1px solid;
-}
-
-.mainContainer section td:first-child {
+/* .competitorsContainer table td:first-child {
   width: 70%;
 }
 
-.mainContainer section td:last-child {
+.competitorsContainer table td:last-child {
   width: 30%;
-}
-
-.mainContainer section table {
-  width: 100%;
-}
-
-.mainContainer section thead {
-  text-align: left;
-}
-
-.mainContainer section tr:nth-child(odd) {
-  background: var(--zinc-800);
-}
-
-.mainContainer section tr:nth-child(even) {
-  background: var(--zinc-700);
-}
-
-.mainContainer section thead tr:first-child {
-  color: var(--zinc-900);
-  background: var(--zinc-200);
-}
+} */
