@@ -35,12 +35,12 @@ export function Sidebar() {
         <div className={ styles.adminNav }>
           <p>Admin Menu</p>
 
-          <NavLink to="/">
+          <NavLink to="/admin/update-scores">
           <ScrollIcon size={20} />
             Update Scores
           </NavLink>
 
-          <NavLink to="/">
+          <NavLink to="/admin/update-competitors">
             <UserCheckIcon size={20} />
             Update Competitor
           </NavLink>

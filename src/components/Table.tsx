@@ -20,23 +20,14 @@ export function Table({array, typeOfTable, event = 0}: TableProps) {
     }
   }
 
-  // This is gonna set the status for anything that requires either a yes or no for
-  // an event completion status.
-  function singleEventCompletedStatus(competitorEventStatus: number) {
-    if ( competitorEventStatus == 1 ) {
-      return "Yes"
-    } else {
-      return "No"
-    } 
-  }
-
   return (
     <table className={ styles.table }>
       <thead>
         <tr>
           <th>{ GenerateTableNameHeader()} </th>
           <th>Total Points</th>
-          { event == 0 && typeOfTable != "SingleEvent" ? <th>Events Completed</th> : <th>Event Completed?</th> }
+          { event == 0 && typeOfTable != "SingleEvent" ? <th>Events Completed</th> : "" }
+          { event == 0 && typeOfTable == "SingleEvent" ? <th>Event Completed?</th> : "" }
           { typeOfTable != "EventResult" && typeOfTable != "SingleEvent" && typeOfTable != "Individual" ? <th>Amount Of Members</th> : "" }
         </tr>
       </thead>
@@ -48,13 +39,23 @@ export function Table({array, typeOfTable, event = 0}: TableProps) {
             const name = competitor.name
             const totalScore = competitor.totalScore
             const memberAmount = competitor.memberAmount
-            const eventsCompleted = competitor.eventsCompleted
+            let eventsCompleted
+            
+            switch ( undefined ) {
+              case ( competitor.eventCompleted ):
+                eventsCompleted = competitor.eventsCompleted
+                break
+              case ( competitor.eventsCompleted ):
+                competitor.eventCompleted == true ? eventsCompleted = "Yes" : eventsCompleted = "No"
+                break
+            }
 
             return (
               <tr key={ name }>
                 <td>{ name }</td>
                 <td>{ totalScore }</td>
-                { event == 0 ? <td>{ eventsCompleted }</td> : "" }
+                { event == 0 && typeOfTable != "SingleEvent" ? <td>{ eventsCompleted }/5</td> : ""}
+                { event == 0 && typeOfTable == "SingleEvent" ? <td>{ eventsCompleted }</td>  : "" }
                 { typeOfTable != "EventResult" && typeOfTable != "SingleEvent" && typeOfTable != "Individual" ? <td>{ memberAmount }</td> : "" }
               </tr>
             )

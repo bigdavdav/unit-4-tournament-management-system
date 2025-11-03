@@ -4,9 +4,10 @@ import { Competitors } from "./pages/Competitors"
 import { DefaultLayout } from "./layouts/DefaultLayout"
 import { RankingPage } from "./components/RankingPage"
 import { EventScores } from "./pages/EventScores"
+import { UpdateScores } from "./pages/UpdatePages/UpdateScores"
+import { UpdateCompetitorsMenu } from "./pages/UpdatePages/UpdateCompetitorsMenu"
 
 export function Router() {
-  const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   return (
     <Routes>
       <Route path="/" element={ <DefaultLayout /> }>
@@ -22,6 +23,12 @@ export function Router() {
         <Route path="/event-scores/event-3" element={ <RankingPage title={ "Event 3" } event={3} /> } />
         <Route path="/event-scores/event-4" element={ <RankingPage title={ "Event 4" } event={4} /> } />
         <Route path="/event-scores/event-5" element={ <RankingPage title={ "Event 5" } event={5} /> } />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/update-scores" element={ <UpdateScores /> } />
+        <Route path="/admin/update-competitors" element={ <UpdateCompetitorsMenu /> } />
+        <Route path="/admin/update-competitors/delete-competitor" element={} />
+        <Route path="/admin/update-competitors/delete-competitor" element={} />
 
         {/* <Route path="*" element={<Error404 />}> make a 404 page at some point */}
       </Route>

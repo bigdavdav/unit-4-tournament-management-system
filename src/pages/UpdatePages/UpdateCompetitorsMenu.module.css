@@ -1,0 +1,16 @@
+.functionListing {
+  height: 12rem;
+  padding: 3rem;
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--zinc-800);
+  border-radius: 4px;
+
+  transition: background 0.2s;
+}
+
+.functionListing + .functionListing {
+  margin-top: 1rem;
+}

@@ -59,42 +59,42 @@ export let singleEventCompetitors = [
     name: "se1",
     eventSignedUpFor: 1,
     totalScore: 0,
-    eventCompleted: 0
+    eventCompleted: true
   },
   {
     ID: 2,
     name: "se2",
     eventSignedUpFor: 2,
     totalScore: 0,
-    eventCompleted: 0
+    eventCompleted: false
   },
   {
     ID: 3,
     name: "se3",
     eventSignedUpFor: 3,
     totalScore: 0,
-    eventCompleted: 0
+    eventCompleted: true
   },
   {
     ID: 4,
     name: "se4",
     eventSignedUpFor: 4,
     totalScore: 0,
-    eventCompleted: 0
+    eventCompleted: false
   },
   {
     ID: 5,
     name: "se5",
     eventSignedUpFor: 5,
     totalScore: 0,
-    eventCompleted: 0
+    eventCompleted: true
   },
   {
     ID: 6,
     name: "se6",
     eventSignedUpFor: 1,
     totalScore: 0,
-    eventCompleted: 0
+    eventCompleted: false
   },
 ]
 
@@ -160,21 +160,21 @@ function getTotalScores(array: any[], event = 0) {
 // This combines normal competitors and single event competitors into one array so
 // tables for each event can be displayed with every participant avaliable.
 // This function will be exported so the event number can be specified to each component.
-export function competitorsByEvent(event: number, teamArray: any[]) {
+export function competitorsByEvent(event: number) {
   let combinedArray: object[] = []
   const filteredSingleEventCompetitors = singleEventCompetitors.filter((competitor) => {
     return competitor.eventSignedUpFor == event
   })
 
-  teamArray.forEach((competitor) => {
-    combinedArray.push(getTotalScores(competitor))
+  getTotalScores(competitors).forEach((competitor: any) => {
+    combinedArray.push(competitor)
   })
   filteredSingleEventCompetitors.forEach((competitor) => {
     competitor.ID = competitor.ID + 1000 // added 1000 just so IDs don't clash with each other
     combinedArray.push(competitor)
   })
 
-  return(combinedArray)
+  return combinedArray
 }
 
 // --------- MAKING ARRAYS FOR GLOBAL EXPORTS --------------
