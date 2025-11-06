@@ -1,5 +1,5 @@
 import { TopThreeCard } from "./TopThreeCard"
-import { competitorsByEvent, sortedTotalsByCompetitor } from "../db/competitors"
+import { competitorsByEvent } from "../db/competitors"
 
 import styles from "./RankingPage.module.css"
 import { Table } from "./Table"

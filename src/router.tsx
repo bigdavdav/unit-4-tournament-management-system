@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom"
 
-import { Competitors } from "./pages/Competitors"
 import { DefaultLayout } from "./layouts/DefaultLayout"
+import { Competitors } from "./pages/Competitors"
 import { RankingPage } from "./components/RankingPage"
 import { EventScores } from "./pages/EventScores"
 import { UpdateScores } from "./pages/UpdatePages/UpdateScores"
 import { UpdateCompetitorsMenu } from "./pages/UpdatePages/UpdateCompetitorsMenu"
+import { AddCompetitor } from "./pages/UpdatePages/AddCompetitor"
+import { DeleteCompetitor } from "./pages/UpdatePages/DeleteCompetitor"
 
 export function Router() {
   return (
@@ -15,7 +17,6 @@ export function Router() {
         <Route path="/competitors" element={ <Competitors /> } />
         <Route path="/tournament-rankings" element={ <RankingPage title={ "Tournament Ranking" } /> } />
         <Route path="/event-scores" element={ <EventScores /> } />
-
 
         {/* Event Score Routes */}
         <Route path="/event-scores/event-1" element={ <RankingPage title={ "Event 1" } event={1} /> } />
@@ -27,8 +28,8 @@ export function Router() {
         {/* Admin Routes */}
         <Route path="/admin/update-scores" element={ <UpdateScores /> } />
         <Route path="/admin/update-competitors" element={ <UpdateCompetitorsMenu /> } />
-        <Route path="/admin/update-competitors/delete-competitor" element={} />
-        <Route path="/admin/update-competitors/delete-competitor" element={} />
+        <Route path="/admin/update-competitors/add-competitor" element={<AddCompetitor />} />
+        <Route path="/admin/update-competitors/delete-competitor" element={<DeleteCompetitor />} />
 
         {/* <Route path="*" element={<Error404 />}> make a 404 page at some point */}
       </Route>

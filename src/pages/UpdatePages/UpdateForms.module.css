@@ -6,31 +6,43 @@
   gap: 1rem;
 }
 
-.formContainer input {
+.formContainer input, .formContainer select {
   width: 24rem;
   height: 3rem;
   border-radius: 4px;
 
   border: 0;
+  outline: 0;
   background: var(--zinc-800);
-  color: var(--zinc-100);
   text-align: center;
+}
 
+.formContainer input {
+  color: var(--zinc-100);
   transition: background 0.2s;
 }
 
-/* .formContainer input:hover {
-  background: var(--zinc-700);
-  outline: 0;
-} */
-
-.formContainer input:focus {
-  background: var(--zinc-700);
-  outline: 0;
+.formContainer select {
+  color: var(--zinc-400);
+  cursor: pointer;
+  transition: color, background 0.2s;
 }
 
 .formContainer input::placeholder {
   color: var(--zinc-400);
+  transition: color 0.2s;
+}
+
+.formContainer input:hover::placeholder{
+  color: var(--zinc-100);
+}
+
+.formContainer select:hover  {
+  color: var(--zinc-100);
+}
+
+.formContainer input:focus, .formContainer select:focus:hover {
+  background: var(--zinc-700);
 }
 
 .formContainer button {
