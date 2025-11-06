@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { UserCheckIcon, UsersThreeIcon, RankingIcon, TrophyIcon, ScrollIcon } from "@phosphor-icons/react"
 
