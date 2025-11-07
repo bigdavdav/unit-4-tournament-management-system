@@ -3,14 +3,15 @@ import { competitorsByEvent, findCompetitorIndex, updateScore } from '../../db/c
 import styles from './UpdateForms.module.css'
 
 export function UpdateScores() {
+  const competitorArray = competitorsByEvent(0)
   const [eventNumber, setEventNumber] = useState(1)
   const [points, setPoints] = useState(0)
-  const [name, setName] = useState("")
-  const competitorArray = competitorsByEvent(0)
+  const [name, setName] = useState(competitorArray[0].name)
   
   findCompetitorIndex("team1")
   
   function handleEventNumberChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    console.log(event.target.value)
     setEventNumber(Number(event.target.value))
   }
   
@@ -54,7 +55,7 @@ export function UpdateScores() {
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
-          <option value="2">3</option>
+          <option value="3">3</option>
         </select>
         <button type='submit'>Submit</button>
       </form>

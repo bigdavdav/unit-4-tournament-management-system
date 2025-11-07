@@ -141,7 +141,7 @@ function bubbleSortDescending(array: any[]) {
 export function findCompetitorIndex(name: string) {
   const competitor: any = competitorsByEvent(0).filter((competitor: any) => {
       return competitor.name == name
-    })
+  })
 
   return (competitor[0].ID - 1)
 }
@@ -209,6 +209,18 @@ export function updateScore(name: string, event: number, score: number) {
   competitors[competitorIndex].eventScores[eventIndex] = score
 
   console.log(competitors[competitorIndex].eventScores)
+
+  saveLocalStorage()
+}
+
+export function deleteCompetitor(name: string) {
+  competitors = competitors.filter((competitor: any) => {
+    return competitor.name != name
+  })
+
+  singleEventCompetitors = singleEventCompetitors.filter((competitor: any) => {
+    return competitor.name != name
+  })
 
   saveLocalStorage()
 }
