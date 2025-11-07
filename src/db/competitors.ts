@@ -138,17 +138,12 @@ function bubbleSortDescending(array: any[]) {
   return array
 }
 
-function findCompetitorIndex(name: string) {
-  const competitor: any = () => {
-    competitors.filter((competitor: any) => {
+export function findCompetitorIndex(name: string) {
+  const competitor: any = competitorsByEvent(0).filter((competitor: any) => {
       return competitor.name == name
     })
-    singleEventCompetitors.filter((competitor: any) => {
-      return competitor.name == name
-    })
-  }
 
-  return (competitor.ID - 1)
+  return (competitor[0].ID - 1)
 }
 
 function saveLocalStorage() {
@@ -212,6 +207,8 @@ export function updateScore(name: string, event: number, score: number) {
   const competitorIndex = findCompetitorIndex(name)
   const eventIndex = event - 1
   competitors[competitorIndex].eventScores[eventIndex] = score
+
+  console.log(competitors[competitorIndex].eventScores)
 
   saveLocalStorage()
 }

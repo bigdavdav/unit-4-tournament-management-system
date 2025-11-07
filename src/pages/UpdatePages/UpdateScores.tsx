@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { competitorsByEvent, updateScore } from '../../db/competitors'
+import { competitorsByEvent, findCompetitorIndex, updateScore } from '../../db/competitors'
 import styles from './UpdateForms.module.css'
 
 export function UpdateScores() {
@@ -7,11 +7,13 @@ export function UpdateScores() {
   const [points, setPoints] = useState(0)
   const [name, setName] = useState("")
   const competitorArray = competitorsByEvent(0)
-
+  
+  findCompetitorIndex("team1")
+  
   function handleEventNumberChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setEventNumber(Number(event.target.value))
   }
-
+  
   function handlePointsChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setPoints(Number(event.target.value))
   }
@@ -21,6 +23,7 @@ export function UpdateScores() {
   }
 
   function handleFormSubmission(event: FormEvent) {
+    event.preventDefault()
     updateScore(name, eventNumber, points)
   }
   return (
