@@ -15,7 +15,6 @@ export function UpdateScores() {
   findCompetitorIndex("team1")
   
   function handleEventNumberChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    console.log(event.target.value)
     setEventNumber(Number(event.target.value))
   }
   
@@ -28,8 +27,6 @@ export function UpdateScores() {
   }
 
   function handleFormSubmission(event: FormEvent) {
-    event.preventDefault()
-
     updateScore(name, eventNumber, points)
   }
   return (

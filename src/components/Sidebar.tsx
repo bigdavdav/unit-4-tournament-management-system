@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import { competitors, singleEventCompetitors } from "../db/competitors"
 import { UserCheckIcon, UsersThreeIcon, RankingIcon, TrophyIcon, ScrollIcon } from "@phosphor-icons/react"
 
 import styles from "./Sidebar.module.css"
@@ -34,10 +35,14 @@ export function Sidebar() {
         <div className={ styles.adminNav }>
           <p>Admin Menu</p>
 
-          <NavLink to="/admin/update-scores">
-          <ScrollIcon size={20} />
-            Update Scores
-          </NavLink>
+          {
+            ( competitors.length + singleEventCompetitors.length ) >= 1 ?
+              <NavLink to="/admin/update-scores">
+                <ScrollIcon size={20} />
+                Update Scores
+              </NavLink>
+            : ''
+          }
 
           <NavLink to="/admin/update-competitors">
             <UserCheckIcon size={20} />
