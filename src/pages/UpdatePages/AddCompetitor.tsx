@@ -45,11 +45,11 @@ export function AddCompetitor() {
         <select name="typeOfCompetitor" id="typeOfCompetitor" defaultValue={typeOfCompetitor} onChange={handleTypeOfCompetitorChange}>
           <option value="Individual">Individual</option>
           <option value="Team">Team</option>
-          <option value="Single Event">Single Event</option>
+          <option value="SingleEventCompetitor">Single Event</option>
         </select>
 
         { typeOfCompetitor == "Team" ? <p>Amount of members:</p> : "" }
-        { typeOfCompetitor == "Team" ? <input type="number" id='amountOfMembers' min={2} value={amountOfCompetitors.toString()} onChange={handleAmountOfCompetitorsChange} /> : "" }
+        { typeOfCompetitor == "Team" ? <input type="number" id='memberAmount' min={2} value={amountOfCompetitors.toString()} onChange={handleAmountOfCompetitorsChange} /> : "" }
 
         { typeOfCompetitor == "Single Event" ? <p>Event Number</p> : "" }
         { typeOfCompetitor == "Single Event" ? singleEventDropdown() : "" }

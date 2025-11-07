@@ -11,6 +11,6 @@
   transition: background 0.2s;
 }
 
-.functionListing + .functionListing {
-  margin-top: 1rem;
+.functionListing {
+  margin-bottom: 1rem;
 }

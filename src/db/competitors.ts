@@ -98,11 +98,21 @@
 //   },
 // ]
 
-export let competitors: any = localStorage.getItem('competitors')
-competitors = JSON.parse(competitors)
+export let competitors: any
+if ( localStorage.getItem('competitors') == null ) {
+  competitors = []
+} else {
+  const unparsedCompetitors: any = localStorage.getItem('competitors')
+  competitors = JSON.parse(unparsedCompetitors)
+}
 
-export let singleEventCompetitors: any = localStorage.getItem('singleEventCompetitors')
-singleEventCompetitors = JSON.parse(singleEventCompetitors)
+export let singleEventCompetitors: any
+if ( localStorage.getItem('singleEventCompetitors') == null ) {
+  singleEventCompetitors = []
+} else {
+  const unparsedSEC: any = localStorage.getItem('singleEventCompetitors')
+  singleEventCompetitors = JSON.parse(unparsedSEC)
+}
 
 // ------------ MAKING FUNCTIONS ----------------
 
@@ -139,11 +149,22 @@ function bubbleSortDescending(array: any[]) {
 }
 
 export function findCompetitorIndex(name: string) {
-  const competitor: any = competitorsByEvent(0).filter((competitor: any) => {
+  const competitor: any = competitors.filter((competitor: any) => {
       return competitor.name == name
   })
 
-  return (competitor[0].ID - 1)
+  const sec: any = singleEventCompetitors.filter((competitor: any) => {
+      return competitor.name == name
+  })
+
+  switch (0) {
+    case competitor.length:
+      return ([sec[0].ID - 1, 'singleEventCompetitor'])
+    default:
+      return ([competitor[0].ID - 1, 'competitor'])
+  }
+  
+
 }
 
 function saveLocalStorage() {
@@ -196,7 +217,7 @@ export function competitorsByEvent(event: number) {
     combinedArray.push(competitor)
   })
   filteredSingleEventCompetitors.forEach((competitor: any) => {
-    competitor.ID = competitor.ID + 1000 // added 1000 just so IDs don't clash with each other
+    competitor.ID = competitor.ID
     combinedArray.push(competitor)
   })
 
@@ -206,17 +227,35 @@ export function competitorsByEvent(event: number) {
 export function updateScore(name: string, event: number, score: number) {
   const competitorIndex = findCompetitorIndex(name)
   const eventIndex = event - 1
-  competitors[competitorIndex].eventScores[eventIndex] = score
 
-  console.log(competitors[competitorIndex].eventScores)
+  if ( competitorIndex[1] == 'singleEventCompetitor' ) {
+    singleEventCompetitors[competitorIndex[0]].totalScore = score
+  } else {
+    competitors[competitorIndex[0]].eventScores[eventIndex] = score
+  }
 
   saveLocalStorage()
 }
 
-export function deleteCompetitor(name: string) {
-  competitors = competitors.filter((competitor: any) => {
-    return competitor.name != name
-  })
+export function addCompetitor(name: string, typeOfCompetitor: 'Team' | 'Individual' | 'SingleEventCompetitor', memberAmount = 1, eventNumber?: number) {
+  if ( typeOfCompetitor != 'SingleEventCompetitor' ) {
+    competitors.append({
+      ID: competitors.length,
+      name: name,
+      teamOrIndividual: typeOfCompetitor,
+      memberAmount: memberAmount,
+      eventScores: [0, 0, 0, 0, 0],
+      eventsCompleted: 0
+    })
+  } else {
+    singleEventCompetitors.append({
+      ID: singleEventCompetitors.length,
+      name: name,
+      eventSignedUpFor: eventNumber,
+      totalScore: 0,
+      eventCompleted: false
+    })
+  }
 
   singleEventCompetitors = singleEventCompetitors.filter((competitor: any) => {
     return competitor.name != name
