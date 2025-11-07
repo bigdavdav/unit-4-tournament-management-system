@@ -1,6 +1,7 @@
 import { addCompetitor, listOfNames } from '../../db/competitors'
 
 import { useState, type ChangeEvent, type FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import styles from './UpdateForms.module.css'
 
@@ -10,6 +11,7 @@ export function AddCompetitor() {
   const [amountOfCompetitors, setAmountOfCompetitors] = useState(1)
   const [eventNumber, setEventNumber] = useState(0)
   const listOfCompetitorNames = listOfNames()
+  const navigate = useNavigate()
 
   function handleNameChange(event: ChangeEvent<HTMLInputElement>) {
     setCompetitorName(event.target.value)
@@ -52,10 +54,10 @@ export function AddCompetitor() {
   function handleFormSubmission(event: FormEvent) {
     event.preventDefault()
     if ( checkForRepeatedNames(competitorName) ) {
-      event.preventDefault()
       alert("This name is already in use, please choose another name.")
     } else {
       addCompetitor(competitorName, typeOfCompetitor, amountOfCompetitors, eventNumber)
+      navigate('/admin/update-competitors')
     }
   }
 

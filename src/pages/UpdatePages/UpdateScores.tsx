@@ -1,5 +1,7 @@
-import { useState, type FormEvent } from 'react'
 import { competitorsByEvent, findCompetitorIndex, updateScore, competitors, singleEventCompetitors } from '../../db/competitors'
+
+import { useState, type FormEvent } from 'react'
+
 import styles from './UpdateForms.module.css'
 
 export function UpdateScores() {
