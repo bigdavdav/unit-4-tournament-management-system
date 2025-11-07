@@ -1,0 +1,22 @@
+.topThreeByCategory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.topThreeByCategory div {
+  width: 25rem;
+  height: 15rem;
+  padding: 2rem;
+  border-radius: 4px;
+  background-color: var(--zinc-800);
+}
+
+.topThreeByCategory div h2 {
+  margin-bottom: 0.5rem;
+}
+
+.topThreeByCategory div p + P {
+  margin-top: 0.25rem;
+}

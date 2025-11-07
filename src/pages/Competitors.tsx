@@ -1,6 +1,7 @@
 import { Table } from "../components/Table"
 import { singleEventCompetitors, totalScoresByIndividual, totalScoresByTeam } from "../db/competitors"
 
+
 import styles from "./Competitors.module.css"
 
 export function Competitors() {

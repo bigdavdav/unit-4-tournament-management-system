@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 
 import { DefaultLayout } from "./layouts/DefaultLayout"
+import { Home } from "./pages/Home"
 import { Competitors } from "./pages/Competitors"
 import { RankingPage } from "./components/RankingPage"
 import { EventScores } from "./pages/EventScores"
@@ -14,6 +15,7 @@ export function Router() {
     <Routes>
       <Route path="/" element={ <DefaultLayout /> }>
         {/* Regular Navigation Routes */}
+        <Route path="/" element={ <Home /> } />
         <Route path="/competitors" element={ <Competitors /> } />
         <Route path="/tournament-rankings" element={ <RankingPage title={ "Tournament Ranking" } /> } />
         <Route path="/event-scores" element={ <EventScores /> } />
