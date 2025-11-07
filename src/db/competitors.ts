@@ -1,102 +1,4 @@
-// ---------- MAKING COMPETITORS ----------------
-
-// Team/Individual Competitors
-// export let competitors = [
-//   {
-//     ID: 1,
-//     name: "team1",
-//     teamOrIndividual: "Individual",
-//     memberAmount: 1,
-//     eventScores: [3, 0, 1, 0, 2],
-//     eventsCompleted: 3
-//   },
-//   {
-//     ID: 2,
-//     name: "team2",
-//     teamOrIndividual: "Team",
-//     memberAmount: 3,
-//     eventScores: [3, 0, 0, 0, 0],
-//     eventsCompleted: 3
-//   },
-//     {
-//     ID: 3,
-//     name: "team3",
-//     teamOrIndividual: "Individual",
-//     memberAmount: 1,
-//     eventScores: [3, 0, 2, 0, 0],
-//     eventsCompleted: 3
-//   },
-//   {
-//     ID: 4,
-//     name: "team4",
-//     teamOrIndividual: "Team",
-//     memberAmount: 3,
-//     eventScores: [3, 0, 1, 0, 0],
-//     eventsCompleted: 3
-//   },
-//     {
-//     ID: 5,
-//     name: "team5",
-//     teamOrIndividual: "Individual",
-//     memberAmount: 1,
-//     eventScores: [2, 0, 0, 0, 0],
-//     eventsCompleted: 2
-//   },
-//   {
-//     ID: 6,
-//     name: "team6",
-//     teamOrIndividual: "Team",
-//     memberAmount: 3,
-//     eventScores: [1, 0, 0, 0, 0],
-//     eventsCompleted: 2
-//   },
-// ]
-
-// Single Event Competitors
-// export let singleEventCompetitors = [
-//   {
-//     ID: 1,
-//     name: "se1",
-//     eventSignedUpFor: 1,
-//     totalScore: 0,
-//     eventCompleted: true
-//   },
-//   {
-//     ID: 2,
-//     name: "se2",
-//     eventSignedUpFor: 2,
-//     totalScore: 0,
-//     eventCompleted: false
-//   },
-//   {
-//     ID: 3,
-//     name: "se3",
-//     eventSignedUpFor: 3,
-//     totalScore: 0,
-//     eventCompleted: true
-//   },
-//   {
-//     ID: 4,
-//     name: "se4",
-//     eventSignedUpFor: 4,
-//     totalScore: 0,
-//     eventCompleted: false
-//   },
-//   {
-//     ID: 5,
-//     name: "se5",
-//     eventSignedUpFor: 5,
-//     totalScore: 0,
-//     eventCompleted: true
-//   },
-//   {
-//     ID: 6,
-//     name: "se6",
-//     eventSignedUpFor: 1,
-//     totalScore: 1,
-//     eventCompleted: false
-//   },
-// ]
+// -------- IMPORTING/CREATING COMPETITORS FROM LOCAL STORAGE ----------
 
 export let competitors: any
 
@@ -118,7 +20,7 @@ if ( localStorage.getItem('singleEventCompetitors') == null ) {
   singleEventCompetitors = JSON.parse(unparsedSEC)
 }
 
-// ------------ MAKING FUNCTIONS ----------------
+// ------------------------ MAKING FUNCTIONS -----------------------------
 
 // To be used when finding sum of points and the amount of events completed.
 // Sum of points is very obvious how it will work.
@@ -298,7 +200,7 @@ export function deleteCompetitor(name: string) {
   saveLocalStorage()
 }
 
-// --------- MAKING ARRAYS FOR GLOBAL EXPORTS --------------
+// ---------------- MAKING ARRAYS FOR GLOBAL EXPORTS -----------------------
 
 // Filtered competitor arrays by team/individual
 const individualCompetitors =  competitors.filter((competitor: any) => {
