@@ -1,73 +1,17 @@
-# React + TypeScript + Vite
+# Tournament Management System for Unit 4(BTEC IT)
+<hr />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I made this for my Programming Unit in BTEC IT, and it was very mentally painful but here I am.
 
-Currently, two official plugins are available:
+Main takeaway from this was working with session storage, which unlike my experience cookies, it is very sexy and I really like it. Very painful for me but probably good for the experience was the LARGE AMOUNT OF PROBLEM SOLVING I had to do coz everytime I added something, something else would work. By the way let me just tell you how it liked to FIX ITSELF AUTOMATICALLY, FOR NO REASON. With that statement in mind tho there is one thing or two which might be not working.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Originally this was gonna be made with an SQL database, but then I actually clocked I needed a server(or SQLite js didnt want to work locally with ReactJS like IT GOT ADVERTISED TO ME). 
+If you follow Davi's GitHub page lore, you will remember the foreshadowing from Unit 6, and YES I STAND BY IT WAS OVERKILL(coz i gave up lol).
 
-## React Compiler
+# HOW TO NOT BREAK THE WEBSITE AND GIVE YOURSELF A BRAIN ANEURYSM
+<hr />
+Remember how I said the website might have a thing or two not working. So, when you add only one or two competitors the website likes to spaz out like a lil bihh(should have probably made a python program like the rest of my class BUT NOOOOOO I NEEDED TO BE DIFFERENT).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+To fix this though, when adding competitors, you will get three types of competitors(Teams, Individuals, and Single Event Competitors. Add three competitors of each type and the website won't give you brain damage.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Have fun looking at the website.
