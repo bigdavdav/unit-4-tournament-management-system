@@ -1,6 +1,6 @@
 import { competitorsByEvent, findCompetitorIndex, updateScore, competitors, singleEventCompetitors } from '../../db/competitors'
 
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 
 import styles from './UpdateForms.module.css'
 
@@ -28,7 +28,7 @@ export function UpdateScores() {
     setName(event.target.value)
   }
 
-  function handleFormSubmission(event: FormEvent) {
+  function handleFormSubmission() {
     updateScore(name, eventNumber, points)
   }
   return (
