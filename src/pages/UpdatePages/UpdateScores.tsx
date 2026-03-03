@@ -1,4 +1,4 @@
-import { competitorsByEvent, findCompetitorIndex, updateScore, competitors, singleEventCompetitors } from '../../db/competitors'
+import { competitorsByEvent, updateScore, competitors, singleEventCompetitors } from '../../db/competitors'
 
 import { useState } from 'react'
 
