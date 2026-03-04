@@ -1,4 +1,4 @@
-import { competitors, singleEventCompetitors, competitorsByEvent } from '../db/competitors'
+import { competitorsByEvent } from '../db/competitors'
 
 import { NavLink } from 'react-router-dom'
 
@@ -22,10 +22,10 @@ export function EventScores() {
 
             <div className={ styles.podiumList }>
               <h3>Top Three:</h3>
-              { (competitors.length + singleEventCompetitors.length) >= 1 ? <p>{ competitorsByEvent(i)[0].name } </p> : '' }
-              { (competitors.length + singleEventCompetitors.length) >= 2 ? <p>{ competitorsByEvent(i)[1].name }</p> : '' }
-              { (competitors.length + singleEventCompetitors.length) >= 3 ? <p>{ competitorsByEvent(i)[2].name }</p> : '' }
-              { (competitors.length + singleEventCompetitors.length) == 0 ? <p>There are no competitors to rank</p> : ''}
+              { competitorsByEvent(i).length >= 1 ? <p>{ competitorsByEvent(i)[0].name } </p> : '' }
+              { competitorsByEvent(i).length >= 2 ? <p>{ competitorsByEvent(i)[1].name }</p> : '' }
+              { competitorsByEvent(i).length >= 3 ? <p>{ competitorsByEvent(i)[2].name }</p> : '' }
+              { competitorsByEvent(i).length == 0 ? <p>There are no competitors to rank</p> : ''}
             </div>
           </NavLink>
         </section>
