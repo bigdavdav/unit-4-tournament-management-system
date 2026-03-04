@@ -10,11 +10,13 @@ interface RankingPageProps {
 }
 
 export function RankingPage({ title, event = 0 }: RankingPageProps) {
+
+  console.log(sortedTotalsByCompetitor)
   return (
     <main>
       <h1>{ title }</h1>
 
-      { competitorsByEvent(event).length >= 3 ? 
+      { sortedTotalsByCompetitor.length >= 3 ? 
         <section className={ styles.topThreeContainer }>
           <TopThreeCard colorName="silver" competitor={ event == 0 ? sortedTotalsByCompetitor[1] : competitorsByEvent(event)[1] } />
           <TopThreeCard colorName="gold" competitor={ event == 0 ? sortedTotalsByCompetitor[0] : competitorsByEvent(event)[0] } />
