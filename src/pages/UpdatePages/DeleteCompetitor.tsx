@@ -30,12 +30,12 @@ export function DeleteCompetitor() {
       <form action="" className={ styles.formContainer } onSubmit={ handleFormSubmission }>
         <p>Team/Competitor Name:</p>
         <select name="competitorName" id="competitorName" value={competitorName} onChange={ handleNameChange }>
-              {
-                competitorArray.map((competitor: any) => (
-                  <option value={ competitor.name } key={ competitor.name }>{ competitor.name }</option>
-                ))
-              }
-            </select>
+          {
+            competitorArray.map((competitor: any) => (
+              <option value={ competitor.name } key={ competitor.name }>{ competitor.name }</option>
+            ))
+          }
+        </select>
         <button type='submit'>Submit</button>
       </form>
     </main>
