@@ -14,7 +14,6 @@ export function DeleteCompetitor() {
   }
 
   function handleFormSubmission(event: FormEvent) {
-    event.preventDefault()
     deleteCompetitor(competitorName)
     navigate('/admin/update-competitors')
   }

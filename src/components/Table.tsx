@@ -43,12 +43,14 @@ export function Table({array, typeOfTable, event = 0}: TableProps) {
             
             switch ( undefined ) {
               case ( competitor.eventCompleted ):
-                console.log(competitor.eventsCompleted)
+                console.log("ok", competitor.eventsCompleted)
                 eventsCompleted = competitor.eventsCompleted
                 break
               case ( competitor.eventsCompleted ):
                 competitor.eventCompleted == true ? eventsCompleted = "Yes" : eventsCompleted = "No"
             }
+
+            console.log(name, eventsCompleted)
 
             return (
               <tr key={ name }>

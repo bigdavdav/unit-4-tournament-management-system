@@ -52,7 +52,6 @@ export function AddCompetitor() {
   }
 
   function handleFormSubmission(event: FormEvent) {
-    event.preventDefault()
     if ( checkForRepeatedNames(competitorName) ) {
       alert("This name is already in use, please choose another name.")
     } else {
@@ -86,7 +85,7 @@ export function AddCompetitor() {
               <option value="0" hidden></option>
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="2">3</option>
+              <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>

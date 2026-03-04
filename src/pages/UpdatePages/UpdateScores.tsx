@@ -10,9 +10,9 @@ export function UpdateScores() {
     competitorArray = competitorsByEvent(0)
   }
 
+  const [selectedCompetitor, setSelectedCompetitor] = useState(competitorArray[0])
   const [eventNumber, setEventNumber] = useState(1)
   const [points, setPoints] = useState(0)
-  const [selectedCompetitor, setSelectedCompetitor] = useState(competitorArray[0])
   
   function handleEventNumberChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setEventNumber(Number(event.target.value))
@@ -57,7 +57,7 @@ export function UpdateScores() {
               <select name="eventNumber" id="eventNumber" value={eventNumber} onChange={handleEventNumberChange}>
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="2">3</option>
+                <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select> 

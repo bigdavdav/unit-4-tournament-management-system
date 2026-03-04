@@ -79,14 +79,33 @@ function getTotalScores(array: any[], event = 0) {
   return newArray
 }
 
+// Saves data to local storage
+function saveLocalStorage() {
+  const saveComps = JSON.stringify(competitors)
+  localStorage.setItem("competitors", saveComps)
+
+  const saveSEC = JSON.stringify(singleEventCompetitors)
+  localStorage.setItem("singleEventCompetitors", saveSEC)
+}
+
+function sumOfEventsCompleted(eventsArray: any[]) {
+  let total = 0
+
+  eventsArray.forEach((event) => {
+    event == true ? total += 1 : ''
+  })
+
+  return total
+}
+
 // Finds competitor array index by filtering a name
 export function findCompetitorIndex(name: string) {
   const competitor: any = competitors.filter((competitor: any) => {
-      return competitor.name == name
+    return competitor.name == name
   })
 
   const sec: any = singleEventCompetitors.filter((competitor: any) => {
-      return competitor.name == name
+    return competitor.name == name
   })
 
   console.log(sec)
@@ -97,19 +116,8 @@ export function findCompetitorIndex(name: string) {
     default:
       return ([competitor[0].ID - 1, 'competitor'])
   }
+}
   
-
-}
-
-// Saves data to local storage
-function saveLocalStorage() {
-  const saveComps = JSON.stringify(competitors)
-  localStorage.setItem("competitors", saveComps)
-
-  const saveSEC = JSON.stringify(singleEventCompetitors)
-  localStorage.setItem("singleEventCompetitors", saveSEC)
-}
-
 // This combines normal competitors and single event competitors into one array so
 // tables for each event can be displayed with every participant avaliable.
 // This function will be exported so the event number can be specified to each component.
@@ -134,6 +142,7 @@ export function competitorsByEvent(event: number) {
   return bubbleSortDescending(combinedArray)
 }
 
+// list names :P
 export function listOfNames() {
   let listOfNames: any = []
 
@@ -155,10 +164,13 @@ export function updateScore(name: string, event: number, score: number) {
 
   if ( competitorIndex[1] == 'singleEventCompetitor' ) {
     singleEventCompetitors[competitorIndex[0]].totalScore = score
+    singleEventCompetitors[competitorIndex[0]].eventCompleted == false ? singleEventCompetitors[competitorIndex[0]].eventCompleted = true : ''
   } else {
     competitors[competitorIndex[0]].eventScores[eventIndex] = score
-  }
-
+    competitors[competitorIndex[0]].eventsCompletedArray[eventIndex] == false ? competitors[competitorIndex[0]].eventsCompletedArray[eventIndex] = true : ''
+  }  
+  
+  competitors[competitorIndex[0]].eventsCompleted = sumOfEventsCompleted(competitors[competitorIndex[0]].eventsCompletedArray)
   saveLocalStorage()
 }
 
@@ -171,6 +183,7 @@ export function addCompetitor(name: string, typeOfCompetitor: string, memberAmou
       teamOrIndividual: typeOfCompetitor,
       memberAmount: memberAmount,
       eventScores: [0, 0, 0, 0, 0],
+      eventsCompletedArray: [false, false, false, false, false],
       eventsCompleted: 0
     })
   } else {
