@@ -108,8 +108,6 @@ export function findCompetitorIndex(name: string) {
     return competitor.name == name
   })
 
-  console.log(sec)
-
   switch (0) {
     case competitor.length:
       return ([sec[0].ID - 1, 'singleEventCompetitor'])
